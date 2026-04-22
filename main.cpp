@@ -248,8 +248,12 @@ int main() {
     }
 
     //posortowane filmy do drzewa
+    auto start = chrono::high_resolution_clock::now();
     zapiszPrzezDrzewo(wszystkie, PLIK_POSORTOWANY);
-    tabelka << "Posortowane dane zapisano do: " << PLIK_POSORTOWANY << "\n";
+    auto koniec = chrono::high_resolution_clock::now();
+    double ms = chrono::duration<double, milli>(koniec - start).count();
+
+    tabelka << "Posortowane dane zapisano do: " << PLIK_POSORTOWANY << " w czasie" << ms <<" ms (drzewo binarne)\n";
 
     return 0;
 }
